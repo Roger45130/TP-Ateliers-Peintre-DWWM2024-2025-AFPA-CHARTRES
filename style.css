@@ -241,6 +241,11 @@ html, body {
     padding-top: 1rem;
 }
 
+.icon {
+    margin-right: 10px;
+}
+
+
 @keyframes bounceFall {
     0% {
         transform: translateY(-500px);
@@ -262,20 +267,91 @@ html, body {
 }
 
 .bounce-fall {
-    animation: bounceFall 1.85s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: bounceFall 3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
-    .nav {
-        flex-direction: column;
+    .container {
+        width: 85%;
+        margin: auto;
     }
 
-    .primary__list {
-        display: none;
-    } 
+    .nav {
+        max-width: 96%;
+    }
 
     .icon__burger {
         display: block;
+    }
+
+    .list__item {
+        display: none;
+    }
+
+    .primary__list {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+
+    .pageGenerale {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+    }
+
+    .subtitle__h2 {
+        font-size: 2rem;
+        padding-left: 10px;
+        max-width: 100%;
+    }
+
+    .presentation {
+        padding: 10px 10px 0 10px;
+    }
+
+    .menuGalerie {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+
+    .galeryPaint {
+        max-width: 100%;
+    }
+
+    .subtitle__h2_Paint {
+        font-size: 2rem;
+        padding-left: 10px;
+        margin: 10px 0;
+    }
+
+    .naissanceDeces {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .gridTableaux {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+        justify-items: center;
+        padding: 10px;
+    }
+
+    .imageBanniere {
+        display: none;
+    }
+
+    .copyright {
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        text-align: center;
+        max-width: 100%;
+        font-size: 0.85rem;
+        padding-top: 1rem;
     }
 }
