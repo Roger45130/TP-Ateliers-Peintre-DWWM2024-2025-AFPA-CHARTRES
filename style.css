@@ -33,10 +33,10 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
+    padding: 1rem;
     text-decoration: none;
     margin-bottom: 1rem;
-    width: 1440px;
+    width: 97.8%;
     height: 20px;
     background-color: #440B02;
     border-radius: 0.5rem;
@@ -72,29 +72,36 @@ html, body {
     background-color: #401B0D;
 }
 
-.icone__burger {
+.icon__burger {
     padding: 0.5rem;
     border: 1px solid #FFFFFF;
     border-radius: 0.5rem;
     color: #FFFFFF;
     cursor: pointer;
+    /* display: none; */
 }
 
 .pageGenerale {
     width: 1440px;
     height: auto;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .gridEntete {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 75%;
     background-color: #78A899;
-    padding: 20px;
     gap: 1rem;
 }
 
 .bannerGeneral {
     width: 100%;
+    gap: 1rem;
+}
+
+.imageBanniere {
+    padding: 10px;
 }
 
 .description {
@@ -142,6 +149,24 @@ html, body {
     font-weight: 300;
     font-weight: normal;
     font-size: 1.5rem;
+    width: 100%;
+}
+
+.secondList__item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.secondList__item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #FFFFFF;
 }
 
 .nav__linkGalery {
@@ -149,7 +174,80 @@ html, body {
     color: #FFFFFF;
 }
 
-.link__galery {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #FFFFFF;
+.galeryPaint {
+    background-color: #DDD9C6;
+    width: 98.6%;
+    height: 100%;
+}
+
+.subtitle__h2_Paint {
+    color: #435D63;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3rem;
+    margin: 20px;
+    padding: 10px;
+}
+
+.naissanceDeces {
+    color: #435D63;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: justify;
+    margin: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.gridTableaux {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.galeryImage {
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;font-size: 1rem;
+    padding-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+    }
+
+    .primary__list {
+        display: none;
+    } 
+
+    .icone__burger {
+        display: block;
+    }
 }
