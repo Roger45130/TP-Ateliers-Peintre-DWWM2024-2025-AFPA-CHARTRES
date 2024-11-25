@@ -4,6 +4,7 @@ const navLinks = document.querySelectorAll(".nav__link");
 const subtitlePaint = document.querySelector(".subtitle__h2_Paint");
 const naissanceDeces = document.querySelector(".naissanceDeces");
 const gridTableaux = document.querySelector(".gridTableaux");
+const galeryPaint = document.querySelector(".galeryPaint");
 
 // Informations sur les Peintres (Nom, dates, chemins des tableaux).
 const peintres = {
@@ -98,9 +99,29 @@ navLinks.forEach((link) => {
 
                 gridTableaux.appendChild(img);
             });
+
+            // Appliquer l'animation après le chargement des images.
+            applyBounceAnimation();
         }
     });
 });
+
+// Fonction pour appliquer l'animation de chute et rebond.
+function applyBounceAnimation() {
+    const animationContainer = document.querySelector(".animation");
+
+    if (animationContainer) {
+        const images = animationContainer.querySelectorAll(".galeryImage");
+
+        images.forEach((image, index) => {
+            // Ajoute un délai pour que les vignettes s'animent une par une.
+            image.style.animationDelay = `${index * 0.25}s`;
+
+            // Ajoute une classe d'animation à chaque vignette.
+            image.classList.add("bounce-fall");
+        });
+    }
+}
 
 // Récupération des éléments pour le menu burger.
 const burgerIcon = document.querySelector(".icon__burger");
