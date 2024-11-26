@@ -243,10 +243,6 @@ html, body {
     display: none;
 }
 
-.visible {
-    display: block;
-}
-
 /* Animation pour les rebonds */
 .bounce-fall {
     animation: fall-bounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -294,8 +290,8 @@ html, body {
         padding: 0.25rem 0.25rem 0.25rem 0.75rem;
     }
 
-    .icon__burger {
-        display: block; /* Visible pour les petits écrans */
+    .visible {
+        display: block;
     }
 
     .primary__list {
