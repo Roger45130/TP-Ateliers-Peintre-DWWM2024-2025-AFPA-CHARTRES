@@ -143,7 +143,7 @@ navLinks.forEach((link) => {
       // Réinitialise les z-index après l'animation.
       descriptionSection.style.zIndex = "0";
       galeryPaint.style.zIndex = "10";
-    }, 2500); // Durée de l'animation définie dans le CSS.
+    }, 2500); // Durée de l'animation définie dans le CSS de 2.5 secondes.
   }
   
   // Fonction pour afficher ou masquer les liens du menu principal (Burger Menu).
