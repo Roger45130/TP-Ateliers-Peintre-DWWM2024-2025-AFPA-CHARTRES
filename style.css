@@ -1,3 +1,4 @@
+@import url(reset.css);
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
 
@@ -38,7 +39,7 @@ html, body {
     text-decoration: none;
     margin-bottom: 1rem;
     width: 97.8%;
-    height: 20px;
+    height: auto;
     background-color: #440B02;
     border-radius: 0.5rem;
 }
@@ -59,8 +60,6 @@ html, body {
     text-decoration: none;
     color: #FFFFFF;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
     font-weight: bold;
 }
 
@@ -75,18 +74,17 @@ html, body {
 }
 
 .icon__burger {
+    display: none; /* Masqué par défaut sur les grands écrans */
     padding: 0.5rem;
     border: 1px solid #FFFFFF;
     border-radius: 0.5rem;
     color: #FFFFFF;
     cursor: pointer;
-    /* display: none; */
 }
 
 .pageGenerale {
     width: 1440px;
     height: auto;
-    padding-bottom: 0;
     margin-bottom: 0;
 }
 
@@ -116,8 +114,6 @@ html, body {
 .subtitle__h2 {
     color: #FFFFFF;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
     font-weight: bold;
     font-size: 3rem;
 }
@@ -125,8 +121,6 @@ html, body {
 .presentation {
     color: #FFFFFF;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
     font-weight: bold;
     font-size: 1rem;
     text-align: justify;
@@ -149,7 +143,6 @@ html, body {
     list-style: none;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
-    font-weight: normal;
     font-size: 1.5rem;
     width: 100%;
 }
@@ -185,8 +178,6 @@ html, body {
 .subtitle__h2_Paint {
     color: #435D63;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
     font-weight: bold;
     font-size: 3rem;
     margin: 20px;
@@ -196,8 +187,6 @@ html, body {
 .naissanceDeces {
     color: #435D63;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
     font-weight: bold;
     font-size: 1rem;
     text-align: justify;
@@ -230,8 +219,6 @@ html, body {
 .copyright {
     color: #FFFFFF;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
     font-weight: normal;
     display: flex;
     justify-content: center;
@@ -239,38 +226,14 @@ html, body {
     text-align: center;
     font-size: 1rem;
     padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
 .icon {
     margin-right: 10px;
 }
 
-
-@keyframes bounceFall {
-    0% {
-        transform: translateY(-500px);
-        opacity: 0;
-    }
-    25% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(-40px);
-    }
-    75% {
-        transform: translateY(30px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.bounce-fall {
-    animation: bounceFall 3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    opacity: 1;
-}
-
+/* Media query pour les écrans de moins de 768px */
 @media screen and (max-width: 768px) {
     .container {
         width: 85%;
@@ -278,18 +241,28 @@ html, body {
     }
 
     .nav {
-        max-width: 96%;
+        max-width: 95%;
+    }
+    
+    .link__left {
+        padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+    }
+
+    .link {
+        border-left: none;
+        padding: 0.25rem 0.25rem 0.25rem 0.75rem;
     }
 
     .icon__burger {
-        display: block;
-    }
-
-    .list__item {
-        display: none;
+        display: block; /* Affiche l'icône "Burger" sur les petits écrans */
     }
 
     .primary__list {
+        display: none; /* Masque le menu principal */
+    }
+
+    .primary__list.active {
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding-left: 20px;
@@ -297,29 +270,39 @@ html, body {
 
     .pageGenerale {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Change à une seule colonne */
         width: 100%;
         margin: auto;
     }
 
+    .gridEntete {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+
+    .imageBanniere {
+        display: none; /* Masque la bannière */
+    }
+
     .subtitle__h2 {
-        font-size: 2rem;
-        padding-left: 10px;
-        max-width: 100%;
+        width: 90%; /* Ajuste la largeur */
+        margin: auto;
     }
 
     .presentation {
-        padding: 10px 10px 0 10px;
+        width: 90%; /* Ajuste la largeur */
+        margin: auto;
+        padding-top: 10px;
     }
 
     .menuGalerie {
-        display: flex;
+        width: 90%; /* Ajuste la largeur */
+        margin: auto;
         flex-direction: column;
-        width: auto;
     }
 
     .galeryPaint {
-        max-width: 100%;
+        width: 90%; /* Ajuste la largeur */
+        margin: auto;
     }
 
     .subtitle__h2_Paint {
@@ -335,23 +318,16 @@ html, body {
 
     .gridTableaux {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 10px;
         justify-items: center;
         padding: 10px;
     }
 
-    .imageBanniere {
-        display: none;
-    }
-
     .copyright {
         color: #FFFFFF;
-        font-family: "Roboto", sans-serif;
-        font-weight: 300;
-        text-align: center;
-        max-width: 100%;
         font-size: 0.85rem;
         padding-top: 1rem;
+        padding-bottom: 2rem;
     }
 }
