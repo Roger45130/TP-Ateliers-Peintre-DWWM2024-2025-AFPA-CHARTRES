@@ -73,8 +73,12 @@ html, body {
     background-color: #401B0D;
 }
 
+.burgerIcon {
+    margin-left: 20px; /* Espacement pour séparer de la liste */
+}
+
 .icon__burger {
-    display: none; /* Masqué par défaut sur les grands écrans */
+    display: none; /* Masqué par défaut pour les écrans larges */
     padding: 0.5rem;
     border: 1px solid #FFFFFF;
     border-radius: 0.5rem;
@@ -107,7 +111,7 @@ html, body {
 .description {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     padding-right: 50px;
 }
 
@@ -128,6 +132,7 @@ html, body {
 
 .menuGalerie {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -213,7 +218,7 @@ html, body {
 .galeryImage {
     width: 30%;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .copyright {
@@ -242,6 +247,33 @@ html, body {
     display: block;
 }
 
+/* Animation pour les rebonds */
+.bounce-fall {
+    animation: fall-bounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Keyframes pour la chute et rebond */
+@keyframes fall-bounce {
+    0% {
+        transform: translateY(-300px);
+    }
+    70% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(-50px);
+    }
+    90% {
+        transform: translateY(0);
+    }
+    95% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 /* Media query pour les écrans de moins de 768px */
 @media screen and (max-width: 768px) {
     .container {
@@ -252,7 +284,7 @@ html, body {
     .nav {
         max-width: 95%;
     }
-    
+
     .link__left {
         padding: 0.25rem 0.25rem 0.25rem 0.75rem;
     }
@@ -263,11 +295,11 @@ html, body {
     }
 
     .icon__burger {
-        display: block; /* Affiche l'icône "Burger" sur les petits écrans */
+        display: block; /* Visible pour les petits écrans */
     }
 
     .primary__list {
-        display: none; /* Masque le menu principal */
+        display: none;
     }
 
     .primary__list.active {
@@ -279,38 +311,38 @@ html, body {
 
     .pageGenerale {
         display: flex;
-        flex-direction: column; /* Change à une seule colonne */
+        flex-direction: column;
         width: 100%;
         margin: auto;
     }
 
     .gridEntete {
-        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-columns: 1fr;
     }
 
     .imageBanniere {
-        display: none; /* Masque la bannière */
+        display: none;
     }
 
     .subtitle__h2 {
-        width: 90%; /* Ajuste la largeur */
+        width: 90%;
         margin: auto;
     }
 
     .presentation {
-        width: 90%; /* Ajuste la largeur */
+        width: 90%;
         margin: auto;
         padding-top: 10px;
     }
 
     .menuGalerie {
-        width: 90%; /* Ajuste la largeur */
+        width: 90%;
         margin: auto;
         flex-direction: column;
     }
 
     .galeryPaint {
-        width: 90%; /* Ajuste la largeur */
+        width: 90%;
         margin: auto;
     }
 

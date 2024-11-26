@@ -6,6 +6,7 @@ const gridTableaux = document.querySelector(".gridTableaux");
 const galeryPaint = document.querySelector(".galeryPaint");
 const burgerIcon = document.querySelector(".icon__burger");
 const primaryList = document.querySelector(".primary__list");
+const animationContainer = document.querySelector(".animation");
 
 // Informations sur les peintres (Nom, dates, chemins des tableaux).
 const peintres = {
@@ -101,7 +102,7 @@ navLinks.forEach((link) => {
         gridTableaux.appendChild(img);
       });
 
-      // Appliquer l'animation après le chargement des images.
+      // Lancer l'animation des éléments.
       applyBounceAnimation();
     }
   });
@@ -109,19 +110,17 @@ navLinks.forEach((link) => {
 
 // Fonction pour appliquer l'animation de chute et rebond.
 function applyBounceAnimation() {
-  const animationContainer = document.querySelector(".animation");
+  // Ajoute la classe d'animation pour chaque élément dans l'animation container.
+  subtitlePaint.classList.add("bounce-fall");
+  naissanceDeces.classList.add("bounce-fall");
+  gridTableaux.classList.add("bounce-fall");
 
-  if (animationContainer) {
-    const images = animationContainer.querySelectorAll(".galeryImage");
-
-    images.forEach((image, index) => {
-      // Ajoute un délai pour que les vignettes s'animent une par une.
-      image.style.animationDelay = `${index * 0.25}s`;
-
-      // Ajoute une classe d'animation à chaque vignette.
-      image.classList.add("bounce-fall");
-    });
-  }
+  // Supprime la classe après l'animation pour permettre de relancer l'animation.
+  setTimeout(() => {
+    subtitlePaint.classList.remove("bounce-fall");
+    naissanceDeces.classList.remove("bounce-fall");
+    gridTableaux.classList.remove("bounce-fall");
+  }, 2500); // Durée de l'animation définie dans le CSS (2,5 secondes).
 }
 
 // Fonction pour afficher ou masquer les liens du menu principal (Burger Menu).
