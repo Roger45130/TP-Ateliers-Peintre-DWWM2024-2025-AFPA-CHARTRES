@@ -26,7 +26,7 @@ html, body {
     font-family: "Inspiration", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 4rem;
+    font-size: 5rem;
     color: #FFFFFF;
     padding-left: 20px;
 }
@@ -101,6 +101,8 @@ html, body {
     grid-template-columns: 25% 75%;
     background-color: #78A899;
     gap: 1rem;
+    position: relative;
+    z-index: 100;
 }
 
 .bannerGeneral {
@@ -117,8 +119,6 @@ html, body {
     flex-direction: column;
     justify-content: space-evenly;
     padding-right: 50px;
-    z-index: 1; /* Définit en arrière-plan */
-    position: relative;
 }
 
 .subtitle__h2 {
@@ -249,7 +249,7 @@ html, body {
 /* Keyframes pour la chute et rebond */
 @keyframes fall-bounce {
     0% {
-        transform: translateY(-300px);
+        transform: translateY(-900px);
         z-index: 5;
     }
     70% {

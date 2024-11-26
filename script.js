@@ -7,6 +7,7 @@ const galeryPaint = document.querySelector(".galeryPaint");
 const burgerIcon = document.querySelector(".icon__burger");
 const primaryList = document.querySelector(".primary__list");
 const description = document.querySelector(".description");
+const gridEntete = document.querySelector(".gridEntete").style.zIndex = '100';
 
 // Informations sur les peintres (Nom, dates, chemins des tableaux et étiquettes).
 const peintres = {
@@ -114,17 +115,18 @@ navLinks.forEach((link) => {
           tableauContainer.appendChild(label);
           gridTableaux.appendChild(tableauContainer);
         });
-  
+
+        
         // Lancer l'animation des éléments.
         applyBounceAnimation();
-      }
-    });
-  });
-  
+    }
+});
+});
+
   // Fonction pour appliquer l'animation de chute, rebond et gestion des plans.
   function applyBounceAnimation() {
     // Déplace l'animation vers l'arrière-plan temporairement.
-    // descriptionSection.style.zIndex = "5";
+    // gridEntete.style.zIndex = "5";
     galeryPaint.style.zIndex = "10";
   
     // Ajoute la classe d'animation pour chaque élément dans l'animation container.
