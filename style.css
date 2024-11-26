@@ -233,6 +233,15 @@ html, body {
     margin-right: 10px;
 }
 
+/* Classes pour gérer la visibilité de l'icône burger */
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 /* Media query pour les écrans de moins de 768px */
 @media screen and (max-width: 768px) {
     .container {
@@ -318,7 +327,7 @@ html, body {
 
     .gridTableaux {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
         gap: 10px;
         justify-items: center;
         padding: 10px;

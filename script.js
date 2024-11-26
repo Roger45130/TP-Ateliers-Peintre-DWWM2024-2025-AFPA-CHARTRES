@@ -135,7 +135,17 @@ burgerIcon.addEventListener("click", toggleMenu);
 // Fonction pour gérer les ajustements de style au redimensionnement.
 function handleResize() {
   if (window.innerWidth > 768) {
-    // Réinitialise les styles pour les écrans plus larges que 768px.
+    // Cacher l'icône du menu burger pour les écrans plus larges que 768px.
+    burgerIcon.classList.add("hidden");
+    burgerIcon.classList.remove("visible");
+  } else {
+    // Afficher l'icône du menu burger pour les écrans de 768px ou moins.
+    burgerIcon.classList.add("visible");
+    burgerIcon.classList.remove("hidden");
+  }
+
+  // Réinitialise les styles du menu principal pour les écrans plus larges que 768px.
+  if (window.innerWidth > 768) {
     primaryList.classList.remove("active");
   }
 }
