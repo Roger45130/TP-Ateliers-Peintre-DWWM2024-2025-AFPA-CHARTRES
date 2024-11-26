@@ -86,6 +86,10 @@ html, body {
     cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
+
 .pageGenerale {
     width: 1440px;
     height: auto;
@@ -113,6 +117,8 @@ html, body {
     flex-direction: column;
     justify-content: space-evenly;
     padding-right: 50px;
+    z-index: 1; /* Définit en arrière-plan */
+    position: relative;
 }
 
 .subtitle__h2 {
@@ -178,6 +184,8 @@ html, body {
     background-color: #DDD9C6;
     width: 98.6%;
     height: 100%;
+    z-index: 10; /* Définit en premier plan */
+    position: relative;
 }
 
 .subtitle__h2_Paint {
@@ -204,43 +212,33 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
+    gap: 40px;
     margin: 20px;
     padding: 20px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.tableau {
+    position: relative;
+    width: 30%; /* Ajuste la taille en fonction de la disposition */
 }
 
 .galeryImage {
-    width: 30%;
-    border-radius: 5px;
+    width: 100%; /* La largeur du tableau s'adapte au conteneur */
+    border-radius: 5px 5px 0 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.copyright {
+.tableLabel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #020202;
     color: #FFFFFF;
-    font-family: "Roboto", sans-serif;
-    font-weight: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    font-size: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-}
-
-.icon {
-    margin-right: 10px;
-}
-
-/* Classes pour gérer la visibilité de l'icône burger */
-.hidden {
-    display: none;
+    padding: 10px;
+    font-size: 0.75rem;
+    border-radius: 0 0 5px 5px;
 }
 
 /* Animation pour les rebonds */
@@ -252,6 +250,7 @@ html, body {
 @keyframes fall-bounce {
     0% {
         transform: translateY(-300px);
+        z-index: 5;
     }
     70% {
         transform: translateY(0);
@@ -267,7 +266,23 @@ html, body {
     }
     100% {
         transform: translateY(0);
+        z-index: 10;
     }
+}
+
+.copyright {
+    padding-top: 1rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    padding-right: 1rem;
 }
 
 /* Media query pour les écrans de moins de 768px */
