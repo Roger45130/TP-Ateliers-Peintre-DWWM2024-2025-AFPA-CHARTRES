@@ -217,7 +217,7 @@ html, body {
 .gridTableaux {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-end;
     gap: 40px;
     margin: 20px;
@@ -359,7 +359,7 @@ html, body {
     }
 
     .galeryPaint {
-        width: 90%;
+        width: 100%;
         margin: auto;
     }
 
