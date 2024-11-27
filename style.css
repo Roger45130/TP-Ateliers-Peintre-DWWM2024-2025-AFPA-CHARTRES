@@ -74,7 +74,7 @@ html, body {
 }
 
 .burgerIcon {
-    margin-left: 30px; /* Espacement pour séparer de la liste */
+    margin-left: 20px; /* Espacement pour séparer de la liste */
 }
 
 .icon__burger {
@@ -103,6 +103,7 @@ html, body {
     gap: 1rem;
     position: relative;
     z-index: 100;
+    overflow-x: hidden;
 }
 
 .bannerGeneral {
@@ -184,7 +185,12 @@ html, body {
     background-color: #DDD9C6;
     width: 98.6%;
     height: 100%;
-    z-index: 10; /* Définit en premier plan */
+    z-index: 1; /* Définit en premier plan */
+    position: relative;
+}
+
+.animation {
+    z-index: 0;
     position: relative;
 }
 
@@ -220,11 +226,11 @@ html, body {
 
 .tableau {
     position: relative;
-    width: 30%; /* Ajuste la taille en fonction de la disposition */
+    width: 30%;
 }
 
 .galeryImage {
-    width: 100%; /* La largeur du tableau s'adapte au conteneur */
+    width: 100%;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -247,7 +253,6 @@ html, body {
     animation: fall-bounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/* Keyframes pour la chute et rebond */
 @keyframes fall-bounce {
     0% {
         transform: translateY(-900px);
