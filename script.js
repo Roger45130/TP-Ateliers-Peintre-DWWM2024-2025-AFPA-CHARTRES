@@ -125,9 +125,6 @@ navLinks.forEach((link) => {
 
   // Fonction pour appliquer l'animation de chute, rebond et gestion des plans.
   function applyBounceAnimation() {
-    // Déplace l'animation vers l'arrière-plan temporairement.
-    // gridEntete.style.zIndex = "5";
-    galeryPaint.style.zIndex = "10";
   
     // Ajoute la classe d'animation pour chaque élément dans l'animation container.
     subtitlePaint.classList.add("bounce-fall");
@@ -139,10 +136,6 @@ navLinks.forEach((link) => {
         subtitlePaint.classList.remove("bounce-fall");
         naissanceDeces.classList.remove("bounce-fall");
         gridTableaux.classList.remove("bounce-fall");
-  
-      // Réinitialise les z-index après l'animation.
-      descriptionSection.style.zIndex = "0";
-      galeryPaint.style.zIndex = "10";
     }, 2500); // Durée de l'animation définie dans le CSS.
   }
   
