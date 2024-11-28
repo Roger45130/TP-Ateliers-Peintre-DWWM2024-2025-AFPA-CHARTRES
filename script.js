@@ -77,61 +77,43 @@ const peintres = {
   },
 };
 
-// Gestionnaire d'événements pour les liens du menu.
-navLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault(); // Empêche le comportement par défaut du lien.
+// Fonction pour charger les œuvres par défaut (Picasso).
+function loadDefaultPainter() {
+  const defaultPainter = "Picasso";
+  subtitlePaint.textContent = `Galerie ${defaultPainter}`;
+  naissanceDeces.textContent = peintres[defaultPainter].dates;
+  updateGallery(peintres[defaultPainter].tableaux);
+  applyBounceAnimation();
+}
 
-    const peintreId = link.id;
+// Fonction pour mettre à jour la galerie.
+function updateGallery(tableaux) {
+  gridTableaux.innerHTML = ""; // Vide la galerie existante.
+  tableaux.forEach((tableau) => {
+    const tableauContainer = document.createElement("div");
+    tableauContainer.classList.add("tableau");
 
-    if (peintres[peintreId]) {
-      // Mise à jour du titre avec le nom du peintre sélectionné.
-      subtitlePaint.textContent = `Galerie ${peintreId}`;
-      subtitlePaint.textContent = subtitlePaint.textContent.replace(/_/g, " ");
+    const img = document.createElement("img");
+    img.src = tableau.src;
+    img.alt = tableau.label;
+    img.classList.add("galeryImage");
 
-      // Mise à jour des dates de naissance et décès.
-      naissanceDeces.textContent = peintres[peintreId].dates;
+    const label = document.createElement("div");
+    label.classList.add("tableLabel");
+    label.textContent = tableau.label;
 
-      // Mise à jour de la galerie avec les tableaux et leurs étiquettes.
-      gridTableaux.innerHTML = ""; // Vide la galerie existante.
-      const tableaux = peintres[peintreId].tableaux;
-
-      tableaux.forEach((tableau) => {
-        // Crée un conteneur pour chaque tableau et son étiquette.
-        const tableauContainer = document.createElement("div");
-        tableauContainer.classList.add("tableau");
-
-        // Ajoute l'image du tableau.
-        const img = document.createElement("img");
-        img.src = tableau.src; // Chemin de l'image.
-        img.alt = tableau.label; // indique la description de l'image.
-        img.classList.add("galeryImage");
-
-        // Ajoute l'étiquette sous le tableau.
-        const label = document.createElement("div");
-        label.classList.add("tableLabel");
-        label.textContent = tableau.label;
-
-        // Assemble le conteneur.
-        tableauContainer.appendChild(img);
-        tableauContainer.appendChild(label);
-        gridTableaux.appendChild(tableauContainer);
-      });
-
-      // Lancer l'animation des éléments.
-      applyBounceAnimation();
-    }
+    tableauContainer.appendChild(img);
+    tableauContainer.appendChild(label);
+    gridTableaux.appendChild(tableauContainer);
   });
-});
+}
 
-// Fonction pour appliquer l'animation de chute, rebond et gestion des plans.
+// Fonction pour appliquer l'animation de rebond.
 function applyBounceAnimation() {
-  // Ajoute la classe d'animation pour chaque élément dans l'animation container.
   subtitlePaint.classList.add("bounce-fall");
   naissanceDeces.classList.add("bounce-fall");
   gridTableaux.classList.add("bounce-fall");
 
-  // Supprime la classe après l'animation pour permettre de relancer l'animation.
   setTimeout(() => {
     subtitlePaint.classList.remove("bounce-fall");
     naissanceDeces.classList.remove("bounce-fall");
@@ -139,32 +121,40 @@ function applyBounceAnimation() {
   }, 2500); // Durée de l'animation définie dans le CSS.
 }
 
-// Fonction pour afficher ou masquer les liens du menu principal (Burger Menu).
+// Gestionnaire d'événements pour les liens du menu.
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const peintreId = link.id;
+
+    if (peintres[peintreId]) {
+      subtitlePaint.textContent = `Galerie ${peintreId}`.replace(/_/g, " ");
+      naissanceDeces.textContent = peintres[peintreId].dates;
+      updateGallery(peintres[peintreId].tableaux);
+      applyBounceAnimation();
+    }
+  });
+});
+
+// Gestionnaire pour le menu burger.
 function toggleMenu() {
   primaryList.classList.toggle("active");
 }
-
-// Gestionnaire d'événements pour l'icône du menu burger.
 burgerIcon.addEventListener("click", toggleMenu);
 
-// Fonction pour gérer les ajustements de style au redimensionnement.
+// Gestionnaire pour les ajustements de style au redimensionnement.
 function handleResize() {
   if (window.innerWidth > 768) {
-    // Cacher l'icône du menu burger pour les écrans plus larges que 768px.
     burgerIcon.classList.add("hidden");
     burgerIcon.classList.remove("visible");
+    primaryList.classList.remove("active");
   } else {
-    // Afficher l'icône du menu burger pour les écrans de 768px ou moins.
     burgerIcon.classList.add("visible");
     burgerIcon.classList.remove("hidden");
   }
-
-  // Réinitialise les styles du menu principal pour les écrans plus larges que 768px.
-  if (window.innerWidth > 768) {
-    primaryList.classList.remove("active");
-  }
 }
-
-// Appelle la fonction handleResize au chargement de la page et lors du redimensionnement.
 window.addEventListener("resize", handleResize);
 handleResize();
+
+// Charger le peintre par défaut et lancer l'animation à l'ouverture de la page.
+window.addEventListener("load", loadDefaultPainter);
