@@ -102,13 +102,14 @@ html, body {
     grid-template-columns: 25% auto;
     width: 100%;
     background-color: #78A899;
-    gap:0.5rem;
     position: relative;
     z-index: 100;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .bannerGeneral {
+    display: flex;
     width: 100%;
     gap: 1rem;
 }
@@ -366,11 +367,17 @@ html, body {
     .gridEntete {
         grid-template-columns: 1fr;
         width: auto;
-        height: auto;
+        height: 100%;
+        gap: 0;
         background-color: #78A899 !important;
         position: relative;
         z-index: 100;
         overflow: hidden;
+    }
+
+    .bannerGeneral {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .imageBanniere {
@@ -383,29 +390,39 @@ html, body {
 
     .description {
         background-color: #78A899 !important;
+        width: auto;
         position: relative;
         z-index: 100;
         overflow: hidden;
+        padding-bottom: 0;
     }
 
     .subtitle__h2 {
         width: auto;
         background-color: #78A899 !important;
+        font-size: 1.75rem;
         position: relative;
         z-index: 100;
         overflow: hidden;
+        padding-bottom: 20px;
     }
 
     .presentation {
         width: auto;
+        height: 100%;
         background-color: #78A899 !important;
         position: relative;
         z-index: 100;
         overflow: hidden;
+        padding-bottom: 0;
+        
     }
 
     .menuGalerie {
-        background-color: #78A899;
+        padding-top: 0;
+        width: auto;
+        height: 100%;
+        background-color: #78A899 !important;
         position: relative;
         z-index: 100;
         overflow: hidden;
@@ -414,7 +431,7 @@ html, body {
 
     .second__list {
         width: 100%;
-        background-color: #78A899;
+        background-color: #78A899 !important;
         position: relative;
         z-index: 100;
         overflow: hidden;
@@ -422,16 +439,26 @@ html, body {
 
     .secondList__item {
         width: 100;
-        background-color: #78A899;
+        background-color: #78A899 !important;
         position: relative;
         z-index: 100;
         overflow: hidden;
     }
 
+    .secondList__item::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #FFFFFF;
+    }
+
     .menuGalerie {
         width: auto;
         flex-direction: column;
-        background-color: #78A899;
+        background-color: #78A899 !important;
         position: relative;
         z-index: 100;
         overflow: hidden;
