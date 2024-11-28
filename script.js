@@ -10,9 +10,6 @@ const primaryList = document.querySelector(".primary__list");
 const NaissanceDeces = document.createElement("span");
 const naissanceDeces = document.querySelector(".naissanceDeces");
 naissanceDeces.classList.add("naissanceDeces");
-// galeryPaint.appendChild(naissanceDeces);
-// console.log(NaissanceDeces);
-// console.log(naissanceDeces);
 
 // Informations sur les peintres (Nom, dates, chemins des tableaux et étiquettes).
 const peintres = {

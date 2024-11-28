@@ -215,7 +215,8 @@ html, body {
     font-weight: bold;
     font-size: 1rem;
     text-align: justify;
-    margin: 20px;
+    margin: 0 20px;
+    margin-top: 0;
     padding-right: 20px;
     padding-left: 20px;
 }
@@ -255,9 +256,6 @@ html, body {
 }
 
 /* Animation pour les rebonds */
-/* .bounce-fall {
-    animation: fall-bounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-} */
 
 @keyframes fall-bounce {
     0% {
@@ -352,32 +350,87 @@ html, body {
         display: flex;
         flex-direction: column;
         width: 100%;
+        background-color: #78A899;
         margin: auto;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
     }
 
     .gridEntete {
         grid-template-columns: 1fr;
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
     }
 
     .imageBanniere {
         display: none;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
+    }
+
+    .description {
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
     }
 
     .subtitle__h2 {
         width: 90%;
         margin: auto;
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
     }
 
     .presentation {
         width: 90%;
         margin: auto;
         padding-top: 10px;
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
+    }
+
+    .menuGalerie {
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
+    }
+
+    .second__list {
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
+    }
+
+    .secondList__item {
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
     }
 
     .menuGalerie {
         width: 90%;
         margin: auto;
         flex-direction: column;
+        background-color: #78A899;
+        position: relative;
+        z-index: 100;
+        overflow-x: hidden;
+    }
+
+    .animation {
+        z-index: 0;
+        position: relative;
     }
 
     .galeryPaint {
