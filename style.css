@@ -120,7 +120,11 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: #78A899;
     padding-right: 50px;
+    position: relative;
+    z-index: 100;
+    overflow-x: hidden;
 }
 
 .subtitle__h2 {
@@ -275,6 +279,22 @@ html, body {
         transform: translateY(0);
         z-index: 10;
     }
+}
+
+.subtitle__h2_Paint.bounce-fall,
+.naissanceDeces.bounce-fall,
+.gridTableaux.bounce-fall {
+    animation: fall-bounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.galeryImage {
+    width: 100%;
+    height: auto;
+}
+
+.tableLabel {
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 .copyright {

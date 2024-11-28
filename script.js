@@ -1,13 +1,16 @@
 // Récupération des éléments HTML nécessaires pour la gestion des peintres et du menu burger.
 const navLinks = document.querySelectorAll(".nav__link");
 const subtitlePaint = document.querySelector(".subtitle__h2_Paint");
-const naissanceDeces = document.querySelector(".naissanceDeces");
 const gridTableaux = document.querySelector(".gridTableaux");
 const galeryPaint = document.querySelector(".galeryPaint");
 const burgerIcon = document.querySelector(".icon__burger");
 const primaryList = document.querySelector(".primary__list");
-const description = document.querySelector(".description");
-const gridEntete = document.querySelector(".gridEntete").style.zIndex = '100';
+
+// Création dynamique de l'élément <span class="naissanceDeces">
+const naissanceDeces = document.createElement("span");
+naissanceDeces.classList.add("naissanceDeces");
+galeryPaint.appendChild(naissanceDeces); // Ajout du span dans la structure DOM
+console.log(naissanceDeces);
 
 // Informations sur les peintres (Nom, dates, chemins des tableaux et étiquettes).
 const peintres = {
@@ -77,94 +80,92 @@ const peintres = {
 
 // Gestionnaire d'événements pour les liens du menu.
 navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault(); // Empêche le comportement par défaut du lien.
-  
-      const peintreId = link.id;
-  
-      if (peintres[peintreId]) {
-        // Mise à jour du titre avec le nom du peintre sélectionné.
-        subtitlePaint.textContent = `Galerie ${peintreId}`;
-        subtitlePaint.textContent = subtitlePaint.textContent.replace(/_/g, " ");
-  
-        // Mise à jour des dates de naissance et décès.
-        naissanceDeces.textContent = peintres[peintreId].dates;
-  
-        // Mise à jour de la galerie avec les tableaux et leurs étiquettes.
-        gridTableaux.innerHTML = ""; // Vide la galerie existante.
-        const tableaux = peintres[peintreId].tableaux;
-  
-        tableaux.forEach((tableau) => {
-          // Crée un conteneur pour chaque tableau et son étiquette.
-          const tableauContainer = document.createElement("div");
-          tableauContainer.classList.add("tableau");
-  
-          // Ajoute l'image du tableau.
-          const img = document.createElement("img");
-          img.src = tableau.src; // Chemin de l'image.
-          img.alt = tableau.label; // indique la description de l'image.
-          img.classList.add("galeryImage");
-  
-          // Ajoute l'étiquette sous le tableau.
-          const label = document.createElement("div");
-          label.classList.add("tableLabel");
-          label.textContent = tableau.label;
-  
-          // Assemble le conteneur.
-          tableauContainer.appendChild(img);
-          tableauContainer.appendChild(label);
-          gridTableaux.appendChild(tableauContainer);
-        });
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Empêche le comportement par défaut du lien.
 
-        
-        // Lancer l'animation des éléments.
-        applyBounceAnimation();
+    const peintreId = link.id;
+
+    if (peintres[peintreId]) {
+      // Mise à jour du titre avec le nom du peintre sélectionné.
+      subtitlePaint.textContent = `Galerie ${peintreId}`;
+      subtitlePaint.textContent = subtitlePaint.textContent.replace(/_/g, " ");
+
+      // Mise à jour des dates de naissance et décès.
+      naissanceDeces.textContent = peintres[peintreId].dates;
+
+      // Mise à jour de la galerie avec les tableaux et leurs étiquettes.
+      gridTableaux.innerHTML = ""; // Vide la galerie existante.
+      const tableaux = peintres[peintreId].tableaux;
+
+      tableaux.forEach((tableau) => {
+        // Crée un conteneur pour chaque tableau et son étiquette.
+        const tableauContainer = document.createElement("div");
+        tableauContainer.classList.add("tableau");
+
+        // Ajoute l'image du tableau.
+        const img = document.createElement("img");
+        img.src = tableau.src; // Chemin de l'image.
+        img.alt = tableau.label; // indique la description de l'image.
+        img.classList.add("galeryImage");
+
+        // Ajoute l'étiquette sous le tableau.
+        const label = document.createElement("div");
+        label.classList.add("tableLabel");
+        label.textContent = tableau.label;
+
+        // Assemble le conteneur.
+        tableauContainer.appendChild(img);
+        tableauContainer.appendChild(label);
+        gridTableaux.appendChild(tableauContainer);
+      });
+
+      // Lancer l'animation des éléments.
+      applyBounceAnimation();
     }
-});
+  });
 });
 
-  // Fonction pour appliquer l'animation de chute, rebond et gestion des plans.
-  function applyBounceAnimation() {
-  
-    // Ajoute la classe d'animation pour chaque élément dans l'animation container.
-    subtitlePaint.classList.add("bounce-fall");
-    naissanceDeces.classList.add("bounce-fall");
-    gridTableaux.classList.add("bounce-fall");
-  
-    // Supprime la classe après l'animation pour permettre de relancer l'animation.
-    setTimeout(() => {
-        subtitlePaint.classList.remove("bounce-fall");
-        naissanceDeces.classList.remove("bounce-fall");
-        gridTableaux.classList.remove("bounce-fall");
-    }, 2500); // Durée de l'animation définie dans le CSS.
+// Fonction pour appliquer l'animation de chute, rebond et gestion des plans.
+function applyBounceAnimation() {
+  // Ajoute la classe d'animation pour chaque élément dans l'animation container.
+  subtitlePaint.classList.add("bounce-fall");
+  naissanceDeces.classList.add("bounce-fall");
+  gridTableaux.classList.add("bounce-fall");
+
+  // Supprime la classe après l'animation pour permettre de relancer l'animation.
+  setTimeout(() => {
+    subtitlePaint.classList.remove("bounce-fall");
+    naissanceDeces.classList.remove("bounce-fall");
+    gridTableaux.classList.remove("bounce-fall");
+  }, 2500); // Durée de l'animation définie dans le CSS.
+}
+
+// Fonction pour afficher ou masquer les liens du menu principal (Burger Menu).
+function toggleMenu() {
+  primaryList.classList.toggle("active");
+}
+
+// Gestionnaire d'événements pour l'icône du menu burger.
+burgerIcon.addEventListener("click", toggleMenu);
+
+// Fonction pour gérer les ajustements de style au redimensionnement.
+function handleResize() {
+  if (window.innerWidth > 768) {
+    // Cacher l'icône du menu burger pour les écrans plus larges que 768px.
+    burgerIcon.classList.add("hidden");
+    burgerIcon.classList.remove("visible");
+  } else {
+    // Afficher l'icône du menu burger pour les écrans de 768px ou moins.
+    burgerIcon.classList.add("visible");
+    burgerIcon.classList.remove("hidden");
   }
-  
-  // Fonction pour afficher ou masquer les liens du menu principal (Burger Menu).
-  function toggleMenu() {
-    primaryList.classList.toggle("active");
+
+  // Réinitialise les styles du menu principal pour les écrans plus larges que 768px.
+  if (window.innerWidth > 768) {
+    primaryList.classList.remove("active");
   }
-  
-  // Gestionnaire d'événements pour l'icône du menu burger.
-  burgerIcon.addEventListener("click", toggleMenu);
-  
-  // Fonction pour gérer les ajustements de style au redimensionnement.
-  function handleResize() {
-    if (window.innerWidth > 768) {
-      // Cacher l'icône du menu burger pour les écrans plus larges que 768px.
-      burgerIcon.classList.add("hidden");
-      burgerIcon.classList.remove("visible");
-    } else {
-      // Afficher l'icône du menu burger pour les écrans de 768px ou moins.
-      burgerIcon.classList.add("visible");
-      burgerIcon.classList.remove("hidden");
-    }
-  
-    // Réinitialise les styles du menu principal pour les écrans plus larges que 768px.
-    if (window.innerWidth > 768) {
-      primaryList.classList.remove("active");
-    }
-  }
-  
-  // Appelle la fonction handleResize au chargement de la page et lors du redimensionnement.
-  window.addEventListener("resize", handleResize);
-  handleResize();
+}
+
+// Appelle la fonction handleResize au chargement de la page et lors du redimensionnement.
+window.addEventListener("resize", handleResize);
+handleResize();
