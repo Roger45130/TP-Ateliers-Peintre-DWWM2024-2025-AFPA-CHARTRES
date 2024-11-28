@@ -7,10 +7,12 @@ const burgerIcon = document.querySelector(".icon__burger");
 const primaryList = document.querySelector(".primary__list");
 
 // Création dynamique de l'élément <span class="naissanceDeces">
-const naissanceDeces = document.createElement("span");
+const NaissanceDeces = document.createElement("span");
+const naissanceDeces = document.querySelector(".naissanceDeces");
 naissanceDeces.classList.add("naissanceDeces");
-galeryPaint.appendChild(naissanceDeces); // Ajout du span dans la structure DOM
-console.log(naissanceDeces);
+// galeryPaint.appendChild(naissanceDeces);
+// console.log(NaissanceDeces);
+// console.log(naissanceDeces);
 
 // Informations sur les peintres (Nom, dates, chemins des tableaux et étiquettes).
 const peintres = {

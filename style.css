@@ -209,6 +209,7 @@ html, body {
 }
 
 .naissanceDeces {
+    display: inline-block;
     color: #435D63;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
@@ -254,9 +255,9 @@ html, body {
 }
 
 /* Animation pour les rebonds */
-.bounce-fall {
+/* .bounce-fall {
     animation: fall-bounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
+} */
 
 @keyframes fall-bounce {
     0% {
